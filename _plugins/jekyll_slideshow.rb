@@ -9,7 +9,11 @@ module Jekyll
     
     def generate(site)
 
-      config = Jekyll.configuration({})['slideshow']
+      if Jekyll.configuration({}).has_key?('slideshow')
+        config = Jekyll.configuration({})['slideshow']
+      else 
+        config = Hash["width", 100, "height", 100]
+      end
       site.static_files.each do |file|
         if File.extname(file.path).downcase == ('.jpg' || '.png') && file.path.index("-thumb") == nil
             img = Magick::Image::read(file.path).first
