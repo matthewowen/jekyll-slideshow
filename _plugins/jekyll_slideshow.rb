@@ -9,10 +9,11 @@ module Jekyll
     
     def generate(site)
 
+      config = Jekyll.configuration({})['slideshow']
       site.static_files.each do |file|
         if File.extname(file.path).downcase == ('.jpg' || '.png') && file.path.index("-thumb") == nil
             img = Magick::Image::read(file.path).first
-            thumb = img.resize_to_fill(150, 150)
+            thumb = img.resize_to_fill(config['width'], config['height'])
             path = file.path.sub(File.extname(file.path), '-thumb' << File.extname(file.path))
             thumb.write path
             site.static_files << StaticFile.new(thumb, site.source, File.dirname(file.path).sub(site.source, ''), File.basename(file.path).sub('.JPG', '-thumb.JPG'))
