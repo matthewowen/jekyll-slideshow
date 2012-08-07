@@ -1,0 +1,40 @@
+html{color:#000;background:#ffffff;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,textarea,select{*font-size:100%;}
+legend{color:#000000;}
+.cf{*zoom:1;}.cf:after{clear:both;content:"";display:table;}
+.cf:before{content:"";display:table;}
+html{background-color:#1c1c1c;}
+body{font-family:'Gill Sans','Gill Sans MT','Gill Sans W01 Medium',sans-serif;background-color:#1c1c1c;color:#f2f2f2;}
+h1{font-family:Futura-Medium,Futura W01 Medium,Futura,Arial,Sans-Serif;font-size:2.5em;padding-top:15px;}
+h2{font-family:Futura-Medium,Futura W01 Medium,Futura,Arial,Sans-Serif;font-size:2em;padding-top:15px;}
+h3{font-family:Futura-Medium,Futura W01 Medium,Futura,Arial,Sans-Serif;font-size:1.5em;padding-top:10px;}
+h4{font-family:Futura-Medium,Futura W01 Medium,Futura,Arial,Sans-Serif;font-size:1.2em;padding-top:10px;}
+p{padding-top:10px;}
+ul{padding-top:10px;}
+a{color:#f2f2f2;}
+em{font-style:italic;}
+strong{font-weight:bold;}
+header{background-color:#f2f2f2;color:#1c1c1c;}header a{color:#1c1c1c;text-decoration:none;}
+footer{background-color:#f2f2f2;color:#1c1c1c;}footer a{color:#1c1c1c;}
+header>div{width:600px;padding:10px 10px;margin:auto;}
+footer>div{*zoom:1;width:600px;padding:10px 10px 20px;margin:auto;display:block;}footer>div:after{clear:both;content:"";display:table;}
+footer>div:before{content:"";display:table;}
+#content{width:600px;padding:10px 10px 20px;margin:auto;}
+footer{*zoom:1;}footer:after{clear:both;content:"";display:table;}
+footer:before{content:"";display:table;}
+footer .about-us{width:300px;}
+article{*zoom:1;position:relative;}article:after{clear:both;content:"";display:table;}
+article:before{content:"";display:table;}
+.main{width:600px;float:left;}
