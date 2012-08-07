@@ -4,7 +4,7 @@
 
 Jekyll Slideshow is a plugin to help you create image slideshows on your Jekyll / Octopress site.
 
-By slideshow, I mean those neat little JavaScript lightbox things. Instead of big images in your main content, you get a series of thumbnails. Click on one and it appears in a lightbox, and you can scroll left and right through the other items in the list
+By slideshow, I mean those neat little JavaScript lightbox things. Instead of big images in your main content, you get a series of thumbnails. Click on one and it appears in a lightbox, and you can scroll left and right through the other items in the list.
 
 ### What does it do?
 
@@ -16,7 +16,7 @@ If you're already using plugins with your Jekyll install, drop the contents of t
 
 Copy the 'jesl' folder across into your project, too.
 
-In your templates/layouts, include the relevant JS/CSS, and jQuery if you aren't already (for now, Jekyll Slideshow requires jQuery):
+In your templates/layouts, include the relevant JS/CSS, and jQuery if you aren't already (for now, Jekyll Slideshow requires jQuery [sorry about that]):
 
     <link href="/jesl/jesl.min.css" rel="stylesheet" media="screen" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"> </script>
