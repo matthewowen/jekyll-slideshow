@@ -119,6 +119,8 @@ function jekyllSlideshow() {
     jesl.init();
 }
 
+
+
 $(document).ready(function () {
     'use strict';
     jekyllSlideshow();
