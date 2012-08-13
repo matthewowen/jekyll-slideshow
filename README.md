@@ -14,6 +14,12 @@ Jekyll Slideshow will take care of making thumbnail sized versions of all your i
 
 If you're already using plugins with your Jekyll install, drop the contents of the '_plugins' folder into your '_plugins' folder. If you aren't, just copy the folder across.
 
+This plugin uses the nokogiri and RMagick gems, so you'll need to
+
+    gem install nokogiri
+
+and [install RMagick](http://rmagick.rubyforge.org/install-faq.html).
+
 Copy the 'jesl' folder across into your project, too.
 
 In your templates/layouts, include the relevant JS/CSS, and jQuery if you aren't already (for now, Jekyll Slideshow requires jQuery [sorry about that]):
@@ -41,6 +47,14 @@ If you'd like to specify the thumbnail size, you can set this in _config.yml lik
         height: 100
 
 If you checkout the branch 'example' you can see an example site.
+
+### Browser support
+
+The slideshow works in modern browsers, and IE7 up; please raise any problems as issues. The thumbnails are displayed using
+
+    display: inline-block;
+
+inline-block isn't supported on IE7, so if that matters you might want to add an appropriate CSS rule to get the desired styling.
 
 ### Questions, feedback, etc
 
