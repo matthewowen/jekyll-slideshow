@@ -21,6 +21,9 @@
     left: 50%;
     padding: 0;
     z-index: 55;
+    overflow: hidden;
+    height: 0;
+    width: 0;
 }
 
 .jesl-close-button {
@@ -50,6 +53,7 @@
     -o-transition: opacity 0.5s;
     transition: opacity 0.5s;
     z-index: 66;
+    display: none;
 }
 
 .jesl-scroller:hover, .jesl-close-button:hover {
