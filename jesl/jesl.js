@@ -10,37 +10,36 @@ function jekyllSlideshow() {
         },
 
         switchImage: function (img) {
-            var that = this;
-            var newImg = $(img).clone().attr('src', $(img).attr('data-fullimage'))
+            var that = this, newImg = $(img).clone().attr('src', $(img).attr('data-fullimage'));
             // when the image loads, align the lightbox
             newImg.load(function () {
                 // change which image is shown in the lightbox
                 $('.jesl-box .image')
-                    .fadeOut(300, function(){
+                    .fadeOut(300, function () {
                         $(this).html(newImg);
-                        $('.jesl-box .image').fadeIn(400, function(){
+                        $('.jesl-box .image').fadeIn(400, function () {
                             // set the dimensions of the holder based on img width
                             $('.jesl-box')
-                            .animate({
-                                width: $('.jesl-box img').width(),
-                                height: $('.jesl-box img').height(),
-                                marginTop: (-$('.jesl-box img').height() / 2),
-                                marginLeft: (-$('.jesl-box img').width() / 2)
-                            }, 300, function(){
+                                .animate({
+                                    width: $('.jesl-box img').width(),
+                                    height: $('.jesl-box img').height(),
+                                    marginTop: (-$('.jesl-box img').height() / 2),
+                                    marginLeft: (-$('.jesl-box img').width() / 2)
+                                }, 300, function () {
                                 // display the correct scroll arrows
-                                if ($(img).parent().prev().length) {
-                                    $('.jesl-scroller.left').fadeIn(300);
-                                } else {
-                                    $('.jesl-scroller.left').fadeOut(300);
-                                }
-                                if ($(img).parent().next().length) {
-                                    $('.jesl-scroller.right').fadeIn(300);
-                                } else {
-                                    $('.jesl-scroller.right').fadeOut(300);
-                                }
-                            });
+                                    if ($(img).parent().prev().length) {
+                                        $('.jesl-scroller.left').fadeIn(300);
+                                    } else {
+                                        $('.jesl-scroller.left').fadeOut(300);
+                                    }
+                                    if ($(img).parent().next().length) {
+                                        $('.jesl-scroller.right').fadeIn(300);
+                                    } else {
+                                        $('.jesl-scroller.right').fadeOut(300);
+                                    }
+                                });
                         });
-                    })
+                    });
             });
             // remember the current image
             this.current = img;
@@ -60,15 +59,15 @@ function jekyllSlideshow() {
 
         showLightbox: function () {
             // show the lightbox
-            $('.jesl-modal-overlay').fadeIn('fast', function(){
-                $('.jesl-box').fadeIn('fast');
+            $('.jesl-modal-overlay').fadeIn('fast', function () {
+                $('.jesl-box').fadeIn(300);
             });
         },
 
         hideLightbox: function () {
             // hide the lightbox
-            $('.jesl-box').fadeOut('fast', function(){
-                $('.jesl-modal-overlay').fadeOut('fast');
+            $('.jesl-box').fadeOut(300, function () {
+                $('.jesl-modal-overlay').fadeOut(300);
             });
         },
 
