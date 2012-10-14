@@ -2,15 +2,16 @@ function jekyllSlideshow() {
     'use strict';
     var jesl = {
         findImagesInLists: function () {
-            // return lists containing images with data-fullimage attribute and inlineify the parents
-            var i;
-            $('ul:has(li:has(img[data-fullimage]))').addClass('jesl-scroller-thumbs');
-            i = $('ul li img');
-            return i;
+            // return lists containing images with data-fullimage attributes
+            // give those lists a scroller thumbs class for css to hook into
+            $('ul:has(li:has(img[data-fullimage]))')
+                .addClass('jesl-scroller-thumbs');
+            return $('ul li img');
         },
 
         switchImage: function (img) {
-            var that = this, newImg = $(img).clone().attr('src', $(img).attr('data-fullimage'));
+            var newImg = $(img).clone().attr('src', $(img)
+                                                    .attr('data-fullimage'));
             // when the image loads, align the lightbox
             newImg.load(function () {
                 // change which image is shown in the lightbox
@@ -46,7 +47,9 @@ function jekyllSlideshow() {
         },
 
         scrollGallery: function (dir) {
-            // scroll the lightbox (next or previous)
+            // scroll the lightbox in the direction passed.
+            // only do it if there's something to scroll to (link shouldn't)
+            // be displayed if there isn't, but just in case...
             var img = this.current;
             if (img) {
                 if (dir === 'left' && $(img).parent().prev().length) {
@@ -73,6 +76,9 @@ function jekyllSlideshow() {
 
         init: function () {
             var that = this;
+            // add all the needed markup: dark overlay, and a div for the
+            // image box containing a div for the image as well as scroller
+            // and closer buttons
             $('body')
                 .append($('<div class="jesl-modal-overlay"></div>')
                     .hide()
@@ -100,10 +106,13 @@ function jekyllSlideshow() {
                     .hide()
                     ));
 
+            // find images in the lists, then add the event listener
+            // to them all, so that we get the lightboxy goodness
             this.findImagesInLists().click(function () {
                 that.switchImage(this);
                 that.showLightbox();
             });
+            // listen for keyboard presses to hide / navigate the slideshow
             $(document).keydown(function (e) {
                 // We don't need to worry about unbinding these events
                 // This is because hideLightbox() doesn't do anything of
@@ -111,21 +120,24 @@ function jekyllSlideshow() {
                 // scrollGallery() only scrolls if there's something to
                 // scroll to.
                 if (e.keyCode === 27) {
+                    // this is the escape key
                     that.hideLightbox();
                 }
                 if (e.keyCode === 37) {
+                    // this is the left arrow
                     that.scrollGallery('left');
                 }
                 if (e.keyCode === 39) {
+                    // this is the right arrow
                     that.scrollGallery('right');
                 }
             });
         }
     };
+    // once we've instantiated the object, run the init method and let the
+    // happiness flow
     jesl.init();
 }
-
-
 
 $(document).ready(function () {
     'use strict';
