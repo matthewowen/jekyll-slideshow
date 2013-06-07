@@ -52,7 +52,7 @@ module Jekyll
         img['src'] = newurl
         img['data-fullimage'] = url
       end
-      return doc
+      return doc.to_s
 
     end
   end
