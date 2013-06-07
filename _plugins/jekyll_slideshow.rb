@@ -6,14 +6,14 @@ module Jekyll
 
   class ThumbGenerator < Generator
     safe true
-    
+
     def generate(site)
       # go through all the images in the site, generate thumbnails for each one
 
       # if we don't have values set for thumbnails, use a sensible default
       if Jekyll.configuration({}).has_key?('slideshow')
         config = Jekyll.configuration({})['slideshow']
-      else 
+      else
         config = Hash["width", 100, "height", 100]
       end
       to_thumb = Array.new
@@ -21,8 +21,18 @@ module Jekyll
       # avoids problem with running over and over the old thumb
       site.static_files.each do |file|
         if (File.extname(file.path).downcase == ('.jpg' || '.png')) &&
-          (!File.basename(file.path).include? "-thumb")
+              (!File.basename(file.path).include? "-thumb")
+          new_path = File.dirname(file.path) +
+            '/' + File.basename(file.path, '.*') +
+            '-thumb' + File.extname(file.path)
+          # if we already have a thumbnail for this, we may or may not want to
+          # overwrite it. concretely, we overwrite it if and only if the
+          # thumbnail is older than the current version of the file we want to
+          # thumbify
+          if (File.file?(new_path) &&
+              File.mtime(new_path).to_i < file.mtime)
             to_thumb.push(file)
+          end
         end
       end
       to_thumb.each do |file|
